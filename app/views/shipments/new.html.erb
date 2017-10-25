@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@shipment) do |f| %>
+    <%= f.fields_for :sender do |s| %>
+        <%= s.label :email, "Destinatario" %>
+        <%= s.text_field :email %>
+      <% end %>
+
+      <%= f.fields_for :receiver do |r| %>
+        <%= r.label :email, "Destinatario" %>
+        <%= r.text_field :email %>
+      <% end %>
+
+      <%= f.fields_for :cadet do |c| %>
+        <%= c.label :email, "Cadete" %>
+        <%= c.text_field :email %>
+      <% end %>
+
+
+      <%= f.label "Dirección origen" %>
+      <%= f.text_field :sender_address %>
+
+      <%= f.label "Dirección destinatario" %>
+      <%= f.text_field :sender_address %>
+
+      <%= f.submit "Create my account", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

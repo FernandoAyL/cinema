@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  resources :movies
-
-  root :to => redirect('/movies')
-
+  devise_for :cadets, path: 'cadets', :controllers => { :sessions => "cadets/sessions", :registrations => "cadets/registrations" }
+  devise_for :users, path: 'users', :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  root 'static_pages#home'
+  get  '/signup',  to: 'users#new'
+  get  '/shipments/new', to: 'shipments#new'
+  resources :shipments
 end
